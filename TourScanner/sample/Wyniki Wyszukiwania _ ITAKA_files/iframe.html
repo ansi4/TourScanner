@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!-- saved from url=(0028)https://user.itaka.pl/iframe -->
+<html lang="pl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>LocalStorage</title>
+    <script type="text/javascript">
+	    !function(e,t,a,r){"use strict";if(void 0!==a.module&&a.module.exports){a.module.exports=t.apply(a)}else void 0!==a.define&&"function"===a.define&&a.define.amd?define(e,[],t):a[e]=t.apply(a)}("localStorageServer",function(){"use strict";function e(e,t,a){r.postMessage(JSON.stringify({type:e,key:t,data:a}),"*")}function t(){var e,t=new Date;t=t.getTime();for(var a in localStorage)if(localStorage.hasOwnProperty(a))try{void 0!==(e=JSON.parse(localStorage[a])).expires&&null!==e.expires&&t>e.expires&&localStorage.removeItem(a)}catch(e){continue}}function a(e){for(var t,a=!1,r=0;r<o.length;r++)if(t=new RegExp(o[r]+"$","g"),-1!==e.search(t)){a=!0;break}return a}var r,i="itaka_",o=[];return{init:function(n){return void 0===n||void 0===n.allowedDomains?(console.error("Cannot started without allowedDomains list"),!1):(o=n.allowedDomains,void 0!==n.prefix&&(i=n.prefix),t(),r=window.parent,window.onmessage=function(t){if(a(t.origin)){var r=JSON.parse(t.data);switch(r.method){case"set":if(localStorage.setItem(i+r.key,JSON.stringify({data:r.data,expires:r.expires})),"clipboard"===r.key&&TOKEN){var o=new XMLHttpRequest;o.onreadystatechange=function(){if(o.readyState===XMLHttpRequest.DONE&&200===o.status){var e=JSON.parse(o.responseText);e&&e.length>0&&localStorage.setItem("itaka_clipboard",JSON.stringify({data:e,expires:null}))}},o.open("POST","/iframe/save",!0),o.setRequestHeader("Content-Type","application/json"),o.send(JSON.stringify({data:[r.data[r.data.length-1]]}))}e("set",r.key,r.data);break;case"get":if("access-token"===r.key){e("get",r.key,TOKEN.split(":")[0]);break}if("username"===r.key){var n=TOKEN.split(":");n=n.length>0?n[1]:null,e("get",r.key,n)}else{var s=localStorage.getItem(i+r.key);if(s){s=JSON.parse(s);var l=new Date;l=l.getTime(),void 0!==s.expires&&null!==s.expires&&l>s.expires?(localStorage.removeItem(i+r.key),e("get",r.key,null)):e("get",r.key,s.data)}else e("get",r.key,null)}break;case"remove":localStorage.removeItem(i+r.key),e("remove",r.key,"REMOVED")}}},!0)}}},this);
+
+        var TOKEN = '';
+
+        var isLastLogged = localStorage.getItem('isLogged');
+
+        
+                    if (isLastLogged !== "false") {
+	            localStorage.removeItem('itaka_clipboard');
+            }
+
+            localStorage.setItem(
+                'isLogged',
+                false
+            );
+        
+        localStorageServer.init({allowedDomains: ['www.itaka.pl']});
+    </script>
+</head><body></body></html>

@@ -1,0 +1,45 @@
+{
+    "case": "Error",
+    "fields": [
+        {
+            "ClassName": "System.UnauthorizedAccessException",
+            "Message": "Access to the path '/Apps' is denied.",
+            "Data": null,
+            "InnerException": {
+                "ClassName": "System.IO.IOException",
+                "Message": "Permission denied",
+                "Data": null,
+                "InnerException": null,
+                "HelpURL": null,
+                "StackTraceString": null,
+                "RemoteStackTraceString": null,
+                "RemoteStackIndex": 0,
+                "ExceptionMethod": null,
+                "HResult": 13,
+                "Source": null,
+                "WatsonBuckets": null
+            },
+            "HelpURL": null,
+            "StackTraceString": 
+            "   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String path, OpenFlags flags, Int32 mode)\n
+               at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)\n
+               at FSharp.Data.Runtime.IO.asyncRead@219-5.Invoke(Unit unitVar)\n 
+               at Microsoft.FSharp.Control.AsyncPrimitives.CallThenInvoke[T,TResult](AsyncActivation`1 ctxt, TResult result1, FSharpFunc`2 part2)\n
+                  at Microsoft.FSharp.Control.Trampoline.Execute(FSharpFunc`2 firstAction)\n--- End of stack trace from previous location where exception was thrown ---\n 
+                  at Microsoft.FSharp.Control.AsyncResult`1.Commit()\n
+                  at Microsoft.FSharp.Control.AsyncPrimitives.RunSynchronouslyInCurrentThread[a](CancellationToken cancellationToken, FSharpAsync`1 computation)\n
+                  at Microsoft.FSharp.Control.AsyncPrimitives.RunSynchronously[T](CancellationToken cancellationToken, FSharpAsync`1 computation, FSharpOption`1 timeout)\n
+                  at Microsoft.FSharp.Control.FSharpAsync.RunSynchronously[T](FSharpAsync`1 computation, FSharpOption`1 timeout, FSharpOption`1 cancellationToken)\n
+                  at SaveAndSend.Logic.HotelsLoader.getHotels(Config cfg) in D:\\Users\\Documents\\Projects\\Parser\\CheckAndSend\\Logic\\HotelsLoader.fs:line 38\n
+                  at SaveAndSend.Logic.HotelsLoader.compareToOldHotels(Config cfg) in D:\\Users\\Documents\\Projects\\Parser\\CheckAndSend\\Logic\\HotelsLoader.fs:line 117\n
+                  at SaveAndSend.Logic.HotelsLoader.sendMailIfChanged(Config cfg) in D:\\Users\\Documents\\Projects\\Parser\\CheckAndSend\\Logic\\HotelsLoader.fs:line 119\n
+                  at CheckAndSend.Controllers.CheckHotelsController.Get() in D:\\Users\\Documents\\Projects\\Parser\\CheckAndSend\\Controllers\\CheckHotelsController.fs:line 25",
+            "RemoteStackTraceString": null,
+            "RemoteStackIndex": 0,
+            "ExceptionMethod": null,
+            "HResult": -2147024891,
+            "Source": "System.Private.CoreLib",
+            "WatsonBuckets": null
+        }
+    ]
+}

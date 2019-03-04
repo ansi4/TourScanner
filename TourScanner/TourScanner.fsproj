@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <UserSecretsId>28985690-7036-4a6c-a821-4416503b8864</UserSecretsId>
+    <AssemblyName>TourScanner</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Update="sample\sample_json.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FSharp.Data" Version="3.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.0.2105168" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="FSharp.Core" Version="4.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="sample\sample.html" />
+    <Content Include="sample\sample_serp.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sample\Wyniki Wyszukiwania _ ITAKA_files\custom.css" />
+    <Content Include="sample\Wyniki Wyszukiwania _ ITAKA_files\f.txt" />
+    <Content Include="sample\Wyniki Wyszukiwania _ ITAKA_files\iframe.html" />
+    <Content Include="sample\Wyniki Wyszukiwania _ ITAKA_files\TRNPLAN.jpg" />
+    <Content Include="sample\Wyniki Wyszukiwania _ ITAKA_files\TRNSOLA.jpg" />
+    <Content Include="sample\Wyniki Wyszukiwania _ ITAKA_files\vendor.css" />
+    <None Include="sample\Wyniki Wyszukiwania _ ITAKA_files\app.js.download" />
+    <None Include="sample\Wyniki Wyszukiwania _ ITAKA_files\fbevents.js.download" />
+    <None Include="sample\Wyniki Wyszukiwania _ ITAKA_files\gtm.js.download" />
+    <None Include="sample\Wyniki Wyszukiwania _ ITAKA_files\ld.js.download" />
+    <None Include="sample\Wyniki Wyszukiwania _ ITAKA_files\vendor.js.download" />
+    <None Include="sample\Wyniki Wyszukiwania _ ITAKA_files\watch.js.download" />
+    <Compile Include="Config.fs" />
+    <Compile Include="Logic\HotelsLoader.fs" />
+    <Compile Include="Controllers\HotelChangeController.fs" />
+    <Compile Include="Startup.fs" />
+    <None Include="Dockerfile" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+</Project>

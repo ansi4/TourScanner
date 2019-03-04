@@ -1,0 +1,12 @@
+﻿[
+  {
+    "name": "someName",
+    "roomCnt": 10,
+    "price": 100500
+  },
+  {
+    "name": "someOtherName",
+    "roomCnt": 5,
+    "price": 1500
+  }
+]
